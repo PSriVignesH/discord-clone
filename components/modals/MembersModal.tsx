@@ -15,7 +15,7 @@ import axios from 'axios'
 import { MemberRole } from '@prisma/client'
 
 
-const roleIconMap = {
+const roleIconMap:any = {
   "GUEST": <CircleUserRound className="h-4 w-4 ml-2 text-green-400"/>,
   "MODERATOR": <ShieldCheck className="h-4 w-4 ml-2 text-indigo-500" />,
   "ADMIN": <ShieldAlert className="h-4 w-4 text-rose-500" />
@@ -86,7 +86,7 @@ const MembersModal = () => {
       </DialogHeader>
       <ScrollArea className='mt-8 max-h-[420px] pr-6'>
         {
-          server?.members.map((member)=>(
+          server?.members.map((member:any)=>(
             <div key={member.id} className='flex items-center gap-x-2 mb-6'>
               <UserAvatar  src={member.profile.imageUrl}/>
               <div className='flex flex-col gap-y-1'>

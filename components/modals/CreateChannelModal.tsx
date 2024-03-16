@@ -122,7 +122,7 @@ const handleClose =()=>{
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                        {Object.values(channelType).map((type) => (
+                        {Object.values(channelType).map((type:any) => (
                           <SelectItem
                             key={type}
                             value={type}

@@ -18,13 +18,13 @@ interface ServerSidebarProps{
 serverId:string
 }
 
-const iconMap ={
+const iconMap:any={
   [channelType.TEXT]:<Hash className='mr-2 h-4 w-4'/>,
   [channelType.AUDIO]:<Mic className='mr-2 h-4 w-4'/>,
   [channelType.VIDEO]:<Video className='mr-2 h-4 w-4'/>
 }
 
-const roleIconMap ={
+const roleIconMap:any ={
   [MemberRole.GUEST]:<CircleUserRound className="h-4 w-4 mr-2 text-green-500"/>,
   [MemberRole.MODERATOR]: <ShieldCheck className="h-4 w-4 mr-2 text-indigo-500" />,
   [MemberRole.ADMIN]: <ShieldAlert className="h-4 w-4 mr-2 text-rose-500" />
@@ -59,17 +59,17 @@ const ServerSidebar:FC<ServerSidebarProps> = async({serverId}) => {
   })
 
  
-  const textChannels = server?.channels.filter((channel)=>channel.type === channelType.TEXT)
-  const audioChannels = server?.channels.filter((channel)=>channel.type === channelType.AUDIO)
-  const videoChannels = server?.channels.filter((channel)=>channel.type === channelType.VIDEO)
-  const members = server?.members.filter((member)=>member.profileId !== profile.id)
+  const textChannels = server?.channels.filter((channel:any)=>channel.type === channelType.TEXT)
+  const audioChannels = server?.channels.filter((channel:any)=>channel.type === channelType.AUDIO)
+  const videoChannels = server?.channels.filter((channel:any)=>channel.type === channelType.VIDEO)
+  const members = server?.members.filter((member:any)=>member.profileId !== profile.id)
  
   
   if(!server){
     return redirect("/")
   }  
 
-  const role = server.members.find((member)=>member.profileId === profile.id)?.role
+  const role = server.members.find((member:any)=>member.profileId === profile.id)?.role
   return (
     <div className='flex  flex-col h-full text-primary w-full dark:bg-[#2B2D31] bg-[#F2F3F5]'>
       <ServerHeader server={server} role={role}/>
@@ -79,7 +79,7 @@ const ServerSidebar:FC<ServerSidebarProps> = async({serverId}) => {
             {
               label:"Text Channels",
               type:"channel",
-              data:textChannels?.map((channel)=>(
+              data:textChannels?.map((channel:any)=>(
                {
                 id:channel.id,
                 name:channel.name,
@@ -90,7 +90,7 @@ const ServerSidebar:FC<ServerSidebarProps> = async({serverId}) => {
             {
               label:"Voice Channels",
               type:"channel",
-              data:audioChannels?.map((channel)=>(
+              data:audioChannels?.map((channel:any)=>(
                {
                 id:channel.id,
                 name:channel.name,
@@ -101,7 +101,7 @@ const ServerSidebar:FC<ServerSidebarProps> = async({serverId}) => {
             {
               label:"Video Channels",
               type:"channel",
-              data:videoChannels?.map((channel)=>(
+              data:videoChannels?.map((channel:any)=>(
                {
                 id:channel.id,
                 name:channel.name,
@@ -112,7 +112,7 @@ const ServerSidebar:FC<ServerSidebarProps> = async({serverId}) => {
             {
               label:"Members",
               type:"member",
-              data:members?.map((member)=>(
+              data:members?.map((member:any)=>(
                {
                 id:member.id,
                 name:member.profile.name,
@@ -132,7 +132,7 @@ const ServerSidebar:FC<ServerSidebarProps> = async({serverId}) => {
               label="Text Channels"
             />
             <div className="space-y-[2px]">
-              {textChannels.map((channel) => (
+              {textChannels.map((channel:any) => (
                 <ServerChannel
                   key={channel.id}
                   channel={channel}
@@ -152,7 +152,7 @@ const ServerSidebar:FC<ServerSidebarProps> = async({serverId}) => {
               label="Voice Channels"
             />
             <div className="space-y-[2px]">
-              {audioChannels.map((channel) => (
+              {audioChannels.map((channel:any) => (
                 <ServerChannel
                   key={channel.id}
                   channel={channel}
@@ -172,7 +172,7 @@ const ServerSidebar:FC<ServerSidebarProps> = async({serverId}) => {
               label="Video Channels"
             />
             <div className="space-y-[2px]">
-              {videoChannels.map((channel) => (
+              {videoChannels.map((channel:any) => (
                 <ServerChannel
                   key={channel.id}
                   channel={channel}
